@@ -1,5 +1,8 @@
 {
-    "TOKEN":"NjcyMDAzODEzNzk1NjkyNTU0.XjF3RQ.NqMbFLH3KQmP4xOJ0JZ0O4Q0Saw",
+    "TOKEN":"NjcyMDAzODEzNzk1NjkyNTU0.XjIwTQ.Reggba0_RyYioJVCiyW3EvKTuxU",
     "Welcome":"671347507351257118",
-    "Leave":"672053462007021596"
+    "Leave":"672053462007021596",
+    "pic":["D:\\Documents\\GitHub\\Kai_Bot\\pic\\1.jpg", "D:\\Documents\\GitHub\\Kai_Bot\\pic\\2.gif"],
+    "url_pic":["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST7SWgH3oqk-Mtjk_kE1lLBO_vxkgjl8yZDroMhGse0bCxZxbs&s", 
+               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT00UwBa2x2xcVsXoJ8MDd_RXgbQOrc20pOaJbOU86AzJ0VsOo1jg&s"]
 }
