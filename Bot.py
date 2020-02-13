@@ -1,7 +1,7 @@
 import discord
 import json
 import random
-
+import os
 from discord.ext import commands
 
 with open('setting.json', 'r', encoding='utf8') as jfile:
@@ -9,19 +9,7 @@ with open('setting.json', 'r', encoding='utf8') as jfile:
 
 
 
-bot = commands.Bot(command_prefix='!')
-
-
-@bot.command()
-async def 傻眼(ctx):
-    random_pic = random.choice(jdata["pic"])
-    pic = discord.File(random_pic)
-    await ctx.send(file = pic)
-
-@bot.command()
-async def 尬(ctx):
-    random_pic = random.choice(jdata["url_pic"])
-    await ctx.send(random_pic)
+bot = commands.Bot(command_prefix='[')
 
 @bot.event
 async def on_ready():
@@ -37,9 +25,25 @@ async def on_member_remove(member):
     channel = bot.get_channel(int(jdata['Leave']))
     await channel.send(f"{member} leave!")
 
-@bot.command()
-async def ping(ctx):
-    await ctx.send(f"{round(bot.latency*1000)}(ms)")
+@bot.command
+async def load(ctx, extension):
+    bot.load_extension(f"cmds.{extension}")
+    await ctx.send(f"Loaded {extension} done.")
+
+@bot.command
+async def unload(ctx, extension):
+    bot.unload_extension(f"cmds.{extension}")
+    await ctx.send(f"Un - Loaded {extension} done.")
+
+@bot.command
+async def reload(ctx, extension):
+    bot.reload_extension(f"cmds.{extension}")
+    await ctx.send(f"Re - Loaded {extension} done.")
 
 
-bot.run('NjcyMDAzODEzNzk1NjkyNTU0.XjIwTQ.Reggba0_RyYioJVCiyW3EvKTuxU')
+for filename in os.listdir("./cmds"):
+    if filename.endswith(".py"):
+        bot.load_extension(f"cmds.{filename[:-3]}")
+
+if __name__ == "__main__":
+    bot.run('NjcyMDAzODEzNzk1NjkyNTU0.XkTeGw.26pvZ-sxILhe6BwV7byeeCkhdS8')
